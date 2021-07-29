@@ -1,0 +1,166 @@
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Kumbh Sans', sans-serif;
+    background: linear-gradient(hsl(273, 75%, 66%), hsl(240, 73%, 65%));
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    width: 930px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    background-color: white;
+    border-radius: 20px;
+    margin: 25px;
+
+}
+
+.image-container {
+    position: relative;
+    padding: 50px 0;
+    /* was having trouble with the overflow: hidden on the background shadow. decided to add it as a background but it would break. 
+
+    background-image: url(./images/bg-pattern-desktop.svg);
+    background-position: -300px;
+    background-size: 750px;
+    background-repeat: no-repeat; 
+    */
+}
+
+.sec-img {
+    position: absolute;
+    top: -300px;
+    left: -580px;
+}
+
+.outside-content {
+    position: absolute;
+    top: 190px;
+    left: -90px;
+}
+
+.inside-content picture {
+    margin-left: -80px;
+    overflow: hidden;
+}
+
+.inside-content {
+    overflow: hidden;
+}
+
+.faq-container {
+    padding: 50px;
+    padding-bottom: 20px;
+
+
+}
+
+.faq-container h2 {
+    color: hsl(238, 29%, 16%);
+    font-size: 30px;
+    padding-bottom: 20px;
+}
+
+.faq-container>div details {
+    border-bottom: 1px solid hsl(240, 5%, 91%);
+}
+
+.faq-container span {
+    float: right;
+}
+
+summary {
+    display: block;
+    cursor: pointer;
+    width: 100%;
+    text-align: left;
+    padding: 15px 15px 15px 0;
+    color: hsl(240, 6%, 50%);
+    transition: 0.4s;
+}
+
+summary:hover {
+    color: hsl(14, 88%, 65%);
+}
+
+p {
+    padding: 5px 0;
+    color: hsl(240, 6%, 50%);
+    font-size: 14px;
+    overflow: hidden;
+
+}
+
+details[open] summary {
+    font-weight: 700;
+}
+
+details[open] summary span {
+    transform: rotate(180deg);
+    transition: transform 0.3s
+}
+
+details[open] summary~* {
+    animation: sweep .4s ease-in-out;
+
+
+}
+
+@keyframes sweep {
+    0% {
+        opacity: 0;
+        transform: margin-left(-10px)
+    }
+
+    100% {
+        opacity: 1;
+        transform: margin-left(0)
+    }
+}
+
+@media (max-width: 890px) {
+    .container {
+        max-width: 375px;
+        grid-template-columns: repeat(1, 1fr);
+        margin-top: 120px;
+    }
+
+    .image-container {
+        padding: 0;
+        margin: 0 auto;
+        margin-top: -110px;
+
+    }
+
+    .inside-content {
+        overflow: visible;
+    }
+
+    .outside-content {
+        display: none;
+    }
+
+    .sec-img {
+        top: 100px;
+        left: -50px;
+    }
+
+    .faq-container h2 {
+        text-align: center;
+    }
+}
+
+.attribution {
+    top: 20px;
+}
